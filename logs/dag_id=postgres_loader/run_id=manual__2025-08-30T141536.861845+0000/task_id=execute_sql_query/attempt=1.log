@@ -1,0 +1,30 @@
+[2025-08-30T14:15:37.662+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-08-30T14:15:37.680+0000] {taskinstance.py:2631} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: postgres_loader.execute_sql_query manual__2025-08-30T14:15:36.861845+00:00 [queued]>
+[2025-08-30T14:15:37.687+0000] {taskinstance.py:2631} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: postgres_loader.execute_sql_query manual__2025-08-30T14:15:36.861845+00:00 [queued]>
+[2025-08-30T14:15:37.688+0000] {taskinstance.py:2884} INFO - Starting attempt 1 of 1
+[2025-08-30T14:15:37.699+0000] {taskinstance.py:2907} INFO - Executing <Task(SQLExecuteQueryOperator): execute_sql_query> on 2025-08-30 14:15:36.861845+00:00
+[2025-08-30T14:15:37.704+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=590) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-08-30T14:15:37.705+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'postgres_loader', 'execute_sql_query', 'manual__2025-08-30T14:15:36.861845+00:00', '--job-id', '12', '--raw', '--subdir', 'DAGS_FOLDER/postgres_loader.py', '--cfg-path', '/tmp/tmpcb7213jk']
+[2025-08-30T14:15:37.706+0000] {standard_task_runner.py:72} INFO - Started process 591 to run task
+[2025-08-30T14:15:37.706+0000] {standard_task_runner.py:105} INFO - Job 12: Subtask execute_sql_query
+[2025-08-30T14:15:37.749+0000] {task_command.py:467} INFO - Running <TaskInstance: postgres_loader.execute_sql_query manual__2025-08-30T14:15:36.861845+00:00 [running]> on host da5edb323d01
+[2025-08-30T14:15:37.809+0000] {taskinstance.py:3157} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='postgres_loader' AIRFLOW_CTX_TASK_ID='execute_sql_query' AIRFLOW_CTX_EXECUTION_DATE='2025-08-30T14:15:36.861845+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-08-30T14:15:36.861845+00:00'
+[2025-08-30T14:15:37.810+0000] {taskinstance.py:740} INFO - ::endgroup::
+[2025-08-30T14:15:37.822+0000] {sql.py:306} INFO - Executing: 
+        INSERT INTO sample_table (key, value)
+        VALUES ('hello', 'world')
+    
+[2025-08-30T14:15:37.829+0000] {base.py:84} INFO - Retrieving connection 'my_postgres_connection'
+[2025-08-30T14:15:37.837+0000] {base.py:84} INFO - Retrieving connection 'my_postgres_connection'
+[2025-08-30T14:15:37.841+0000] {sql.py:814} INFO - Running statement: 
+        INSERT INTO sample_table (key, value)
+        VALUES ('hello', 'world')
+    , parameters: None
+[2025-08-30T14:15:37.843+0000] {sql.py:823} INFO - Rows affected: 1
+[2025-08-30T14:15:37.852+0000] {taskinstance.py:349} INFO - ::group::Post task execution logs
+[2025-08-30T14:15:37.853+0000] {taskinstance.py:361} INFO - Marking task as SUCCESS. dag_id=postgres_loader, task_id=execute_sql_query, run_id=manual__2025-08-30T14:15:36.861845+00:00, execution_date=20250830T141536, start_date=20250830T141537, end_date=20250830T141537
+[2025-08-30T14:15:37.884+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-08-30T14:15:37.905+0000] {taskinstance.py:3924} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-08-30T14:15:37.907+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
